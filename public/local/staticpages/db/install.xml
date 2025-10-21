@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/staticpages/db" VERSION="2025102100" COMMENT="Tables for the Static Pages local plugin">
+    <TABLES>
+        <TABLE NAME="local_staticpages" COMMENT="Stores static informational pages rendered by the theme.">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" />
+                <FIELD NAME="slug" TYPE="char" LENGTH="100" NOTNULL="true" />
+                <FIELD NAME="title" TYPE="char" LENGTH="255" NOTNULL="true" />
+                <FIELD NAME="heading" TYPE="char" LENGTH="255" NOTNULL="true" />
+                <FIELD NAME="summary" TYPE="text" NOTNULL="false" />
+                <FIELD NAME="content" TYPE="text" NOTNULL="true" />
+                <FIELD NAME="sortorder" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="visible" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" />
+                <FIELD NAME="showinnav" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+                <FIELD NAME="usermodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+                <KEY NAME="slug_unique" TYPE="unique" FIELDS="slug" />
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>

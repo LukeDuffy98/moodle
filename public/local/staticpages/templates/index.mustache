@@ -1,0 +1,33 @@
+{{!
+    Landing page listing available static pages.
+}}
+<section class="local-staticpages">
+    <div class="container">
+        <header class="mb-4">
+            <h1 class="mb-3">{{ title }}</h1>
+            <p class="text-muted mb-0">{{ description }}</p>
+        </header>
+        {{#haspages}}
+        <ul class="list-group list-group-flush">
+            {{#pages}}
+            <li class="list-group-item px-0">
+                <div class="d-flex flex-column gap-1">
+                    <a href="{{{ url }}}" class="fw-semibold stretched-link">{{ title }}</a>
+                    {{#draft}}
+                    <span class="badge bg-warning text-dark align-self-start">{{#str}} draft, local_staticpages {{/str}}</span>
+                    {{/draft}}
+                    {{#summary}}
+                    <div class="text-muted small">{{{ summary }}}</div>
+                    {{/summary}}
+                </div>
+            </li>
+            {{/pages}}
+        </ul>
+        {{/haspages}}
+        {{^haspages}}
+        <div class="alert alert-info" role="status">
+            {{#str}} nolistitems, local_staticpages {{/str}}
+        </div>
+        {{/haspages}}
+    </div>
+</section>
