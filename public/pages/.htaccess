@@ -1,4 +1,10 @@
 RewriteEngine On
+
+# Skip rewrite if slug parameter is already present
+RewriteCond %{QUERY_STRING} (^|&)slug=
+RewriteRule ^ - [L]
+
+# Rewrite clean URLs to PATH_INFO (e.g., /pages/about -> /pages/index.php/about)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.+)$ index.php?slug=$1 [L,QSA]
+RewriteRule ^(.+)$ index.php/$1 [L,QSA]
